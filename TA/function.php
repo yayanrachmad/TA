@@ -1,42 +1,45 @@
 <?php
 // koneksi database
 
-$koneksi = mysqli_connect("localhost", "root", "", "uks");
+include 'Database.php';
+
 if ($koneksi == false) {
     die("Gagal melakukan koneksi ke database." . mysqli_connect_error());
 }
 
-function simpan_petugas($nama, $gender, $kelas, $foto, $telp, $email, $alamat)
-{
-    global $koneksi;
-    $koneksi = "INSERT INTO data_petugas(nama, gender, kelas, foto, telp, email,alamat) 
-    VALUES (" . $nama . ",'" . $gender . "','" . $kelas . "','" . $foto . "','" . $telp . "','" . $email . "','" . $alamat . "')"; {
-        return false;
-    }
-}
+
+// function simpan_petugas($nama, $gender, $kelas, $foto, $telp, $email, $alamat)
+// {
+//     // global $koneksi;
+//     // $koneksi  = "INSERT INTO data_petugas(nama, gender, kelas, foto, telp, email,alamat) 
+//     // VALUES (" . $nama . ",'" . $gender . "','" . $kelas . "','" . $foto . "','" . $telp . "','" . $email . "','" . $alamat . "')";
+
+//     echo "oke";
+// }
     //Close statement
 
     //End function
 
 
 
-// if (isset($_POST['btn_simpan'])) {
-//     $nama = $_POST['nama'];
-//     $gender = $_POST['gender'];
-//     $kelas = $_POST['kelas'];
-//     $foto = $_POST['foto'];
-//     $telp = $_POST['telp'];
-//     $email = $_POST['email'];
-//     $alamat = $_POST['alamat'];
+if (isset($_POST['btn_simpan'])) {
 
+    
+    $nama = $_POST['nama'];
+    $gender = $_POST['gender'];
+    $kelas = $_POST['kelas'];
+    $foto = $_POST['foto'];
+    $telp = $_POST['telp'];
+    $email = $_POST['email'];
+    $alamat = $_POST['alamat'];
 
-//     $sql = "INSERT INTO data_petugas (nama,gender, kelas, foto, telp,email,alamat) VALUES(" . $nama . ",'" . $gender . "','" . $kelas . "','" . $foto . "','" . $telp . "','" . $email . "','" . $alamat . "')";
-//     $simpan = mysqli_query($koneksi, $sql);
-//     if ($simpan && isset($_GET['aksi'])) {
-//     } {
-//         $pesan = "Tidak dapat menyimpan, data belum lengkap!";
-//     }
-// }
+    // $sql = "INSERT INTO data_petugas (nama,gender, kelas, foto, telp,email,alamat) VALUES(" . $nama . ",'" . $gender . "','" . $kelas . "','" . $foto . "','" . $telp . "','" . $email . "','" . $alamat . "')";
+    $sql = "INSERT INTO data_petugas VALUES ('' ,'1', '$nama', '$gender', '$kelas', '$foto', '$telp', '$email', '$alamat', CURRENT_TIMESTAMP )";
+    
+    $simpan = mysqli_query($koneksi, $sql);
+
+    header('location: ../input.php');
+}
 
 
 

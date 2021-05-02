@@ -2,7 +2,7 @@
 include('Database.php');
 include('function.php');
 ?>
-<form action="function.php/simpan_petugas" method="POST">
+<form action="function.php" method="POST">
     <fieldset>
         <legend>
             <h2>Tambah data</h2>
